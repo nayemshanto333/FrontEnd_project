@@ -1,6 +1,7 @@
 
 import './App.css'
 import Card from './Component/Card'
+import Carousel from './Component/Carousel'
 import Chillsbay from './Component/Chillsbay'
 import Hero from './Component/Hero'
 
@@ -18,6 +19,7 @@ function App() {
      <Card />
      <ThingsToDo/>
      <Chillsbay/>
+     <Carousel/>
   
     </>
   )

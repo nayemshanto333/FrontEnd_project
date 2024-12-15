@@ -6,7 +6,6 @@ import {
   NavbarItem,
   NavbarMenuToggle,
   NavbarMenu,
-  NavbarMenuItem,
   Link,
   Button,
 } from "@nextui-org/react";
@@ -14,15 +13,14 @@ import {
   Dropdown,
   DropdownTrigger,
   DropdownMenu,
-  DropdownSection,
   DropdownItem,
 } from "@nextui-org/dropdown";
 
-import {
-  ChevronDownIcon,
-  UserIcon,
-  ShoppingCartIcon,
-} from "@heroicons/react/24/outline";
+import { ChevronDownIcon, UserIcon } from "@heroicons/react/24/outline";
+import ProfileDropdown from "./HomePage/ProfileDropdown";
+import MyModal from "./HomePage/MyModal";
+
+const value = true;
 
 function NavArea() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -91,19 +89,7 @@ function NavArea() {
             </NavbarItem>
           </NavbarItem>
           <NavbarItem>
-            <Dropdown >
-              <DropdownTrigger>
-                <Button className='text-desc' variant="none">
-                  <UserIcon className="text-desc w-4 h-4" />
-                  Account
-                </Button>
-              </DropdownTrigger>
-              <DropdownMenu aria-label="Static Actions" className="text-desc">
-                <DropdownItem>My Profile</DropdownItem>
-                <DropdownItem>My History</DropdownItem>
-                <DropdownItem>Sign Out</DropdownItem>
-              </DropdownMenu>
-            </Dropdown>
+            {value === true ? <MyModal/> : <ProfileDropdown/>}
           </NavbarItem>
           <NavbarItem>
             <Button color="primary" className="px-5 py-2 font-bold rounded-lg">

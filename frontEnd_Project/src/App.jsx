@@ -3,6 +3,8 @@ import './App.css'
 import Card from './Component/Card'
 import Carousel from './Component/Carousel'
 import Chillsbay from './Component/Chillsbay'
+import Footer from './Component/Footer'
+import Galary from './Component/Galary'
 import Hero from './Component/Hero'
 
 import NavArea from './Component/NavArea'
@@ -20,6 +22,9 @@ function App() {
      <ThingsToDo/>
      <Chillsbay/>
      <Carousel/>
+     <Galary/>
+     <Footer/>
+
   
     </>
   )

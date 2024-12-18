@@ -19,6 +19,7 @@ import {
 import { ChevronDownIcon, UserIcon } from "@heroicons/react/24/outline";
 import ProfileDropdown from "./HomePage/ProfileDropdown";
 import MyModal from "./HomePage/MyModal";
+import { NavLink } from "react-router-dom";
 
 const value = true;
 
@@ -56,16 +57,30 @@ function NavArea() {
         <NavbarContent className="hidden md:flex gap-4  w-full justify-center">
           <NavbarBrand>
             <NavbarBrand>
-              <img src="logo.png" alt="logo" className="w-44" />
+              <NavLink to={"/"}>
+                <img src="logo.png" alt="logo" className="w-44" />
+              </NavLink>
             </NavbarBrand>
           </NavbarBrand>
           <NavbarItem>
-            <Link className="text-desc">Eat & Drink</Link>
+            <NavLink
+              to={"/drink"}
+              className={({ isActive }) =>
+                isActive ? "text-[#0E8BFF]" : "text-desc"
+              }
+            >
+              Eat & Drink
+            </NavLink>
           </NavbarItem>
           <NavbarItem>
-            <Link className="text-desc">
-              Club <sup className="!bg-blue-600 text-[8px] px-2 ">+HOT</sup>
-            </Link>
+            <NavLink
+              to={"/club"}
+              className={({ isActive }) =>
+                isActive ? "text-[#0E8BFF]" : "text-desc"
+              }
+            >
+              Club <sup className="!bg-blue-600 text-[8px] px-2 rounded-full text-white  ">+HOT</sup>
+            </NavLink>
           </NavbarItem>
           <NavbarItem>
             <Dropdown>
@@ -89,7 +104,7 @@ function NavArea() {
             </NavbarItem>
           </NavbarItem>
           <NavbarItem>
-            {value === true ? <MyModal/> : <ProfileDropdown/>}
+            {value === true ? <MyModal /> : <ProfileDropdown />}
           </NavbarItem>
           <NavbarItem>
             <Button color="primary" className="px-5 py-2 font-bold rounded-lg">
@@ -101,12 +116,6 @@ function NavArea() {
         {/* Mobile Menu */}
 
         <div className="md:hidden">
-          {/* <NavbarContent className="w-full justify-end">
-            <NavbarItem className="hidden md:flex "></NavbarItem>
-            <NavbarItem>
-              <img src="carticon.png" alt="" />
-            </NavbarItem>
-          </NavbarContent> */}
           <NavbarMenu className="py-8 bg-[#F5FAFF]">
             {menuitems.map((item, index) => (
               <NavbarItem key={index}>

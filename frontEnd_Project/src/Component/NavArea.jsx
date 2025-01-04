@@ -99,9 +99,9 @@ function NavArea() {
             </Dropdown>
           </NavbarItem>
           <NavbarItem>
-            <NavbarItem>
+            <NavLink to={"/cart"}>
               <img src="carticon.png" alt="" />
-            </NavbarItem>
+            </NavLink>
           </NavbarItem>
           <NavbarItem>
             {value === true ? <MyModal /> : <ProfileDropdown />}

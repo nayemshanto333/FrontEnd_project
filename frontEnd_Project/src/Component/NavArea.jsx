@@ -107,9 +107,11 @@ function NavArea() {
             {value === true ? <MyModal /> : <ProfileDropdown />}
           </NavbarItem>
           <NavbarItem>
-            <Button color="primary" className="px-5 py-2 font-bold rounded-lg">
+            <NavLink to="/contact">
+            <button  className="px-8 py-2 font-bold rounded-lg bg-[#0e8bff] text-white">
               Contact
-            </Button>
+            </button>
+            </NavLink>
           </NavbarItem>
         </NavbarContent>
 

@@ -7,11 +7,13 @@ import {
   ModalFooter,
   Button,
   useDisclosure,
+  cn,
 } from "@nextui-org/react";
 import { Input } from "@nextui-org/react";
 import { UserIcon } from "@heroicons/react/24/outline";
+import Warper from "../ShareComponent/Warper";
 
-function MyModal() {
+const MyModal = ({isDark})=> {
   const [isOpen, setIsOpen] = useState(false);
   const handleOpen = () => {
     setIsOpen(true);
@@ -22,13 +24,14 @@ function MyModal() {
 
   return (
     <section className="">
-      <div className="flex flex-wrap">
-        <Button variant="flat" onPress={handleOpen}>
-          <UserIcon className="text-desc w-4 h-4" />
+      <div className="flex flex-wrap" >
+        <Button variant="flat" onPress={handleOpen} className={cn("bg-white text-desc" , isDark && " bg-black text-white")}>
+          <UserIcon className= {cn("text-desc w-4 h-4 " , isDark && "text-white")}  />
           Account
         </Button>
       </div>
       <Modal
+       isDismissable={false}
         isOpen={isOpen}
         backdrop="blur"
         onClose={handleClose}

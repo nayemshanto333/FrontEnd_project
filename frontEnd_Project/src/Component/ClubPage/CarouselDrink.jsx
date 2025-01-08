@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { button, Button } from "@nextui-org/react";
 
-function CarouselDrink() {
+const CarouselClub = ({isDark}) => {
   const cardData = [
     { img: "Calendar.png", text: "Dec 12 2022" },
     { img: "Mark.png", text: "TBS  Lagos" },
@@ -62,16 +62,16 @@ function CarouselDrink() {
           </button>
           <div className="flex flex-col lg:flex-row w-full px-12 gap-6 items-center">
             <div className="w-full lg:w-1/2 mt-7">
-              <h1 className="text-lg sm:text-2xl font-bold text-[#26395C] lg:ms-7">
+              <h1 className="text-lg sm:text-2xl font-bold text-[#ffffff] lg:ms-7">
                 Upcoming Eat & Drink Events
               </h1>
               <img src={currentSlider.image} alt="" />
             </div>
             <div className="w-full lg:w-1/2 flex flex-col gap-4">
-              <h2 className="ms-5 sm:ms-0 font-bold text-2xl lg:text-4xl w-[100%] lg:w-[60%] leading-tight text-[#26395C]">
+              <h2 className="ms-5 sm:ms-0 font-bold text-2xl lg:text-4xl w-[100%] lg:w-[60%] leading-tight text-[#ffffff]">
                 {currentSlider.title}
               </h2>
-              <p className="text-[#26395C] text-md lg:text-xl w-[70%] leading-tight">
+              <p className="text-[#ffffff] text-md lg:text-xl w-[70%] leading-tight">
                 {currentSlider.description}
               </p>
               <div className="grid grid-cols-2">
@@ -84,19 +84,19 @@ function CarouselDrink() {
               </div>
               <div className="flex gap-8">
                 <Button
-                  color="primary"
-                  variant="bordered"
+                  
+                  
                   size="lg"
-                  className="w-48"
+                  className="w-48 bg-white text-[#0E8BFF] font-bold"
                 >
                   Add to cart
                 </Button>
-                <Button color="primary" size="lg" className="w-48">
+                <Button color="primary" size="lg" className="w-48 font-bold">
                   Book Now
                 </Button>
               </div>
               <div className="flex gap-4 mt-3">
-                <p className="text-xl text-[#26395C]">Connect with us on:</p>
+                <p className="text-xl text-[#ffffff]">Connect with us on:</p>
                 <div className="flex gap-4">
                   <img src="Twitter.png" alt="" />
                   <img src="Instagram.png" alt="" />
@@ -117,7 +117,7 @@ function CarouselDrink() {
               onClick={() => handleDoClick(index)}
               key={index}
               className={`w-3 h-3 rounded-full ${
-                index === currentIndex ? "bg-black" : "bg-indigo-200"
+                index === currentIndex ? "bg-[#0E8BFF]" : "bg-indigo-200"
               }`}
             ></button>
           ))}
@@ -127,4 +127,4 @@ function CarouselDrink() {
   );
 }
 
-export default CarouselDrink;
+export default CarouselClub;

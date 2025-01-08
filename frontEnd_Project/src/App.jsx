@@ -1,29 +1,62 @@
 import "./App.css";
-import Footer from "./Component/Footer";
-import NavArea from "./Component/NavArea";
+
 import Homepage from "./Component/HomePage/Homepage";
-import  { BrowserRouter as Router , Routes, Route} from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Drinkpage from "./Component/DrinkPage/Drinkpage";
 import Clubpage from "./Component/ClubPage/Clubpage";
 import Payment from "./Component/Cart/Payment";
 import ContactPage from "./Component/Contact/ContactPage";
+import Warper from "./Component/ShareComponent/Warper";
 
-function App() {
+const App = () => {
   return (
     <>
       <Router>
-        <NavArea />
         <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/drink" element={<Drinkpage/>}/>
-          <Route path="/club" element={<Clubpage/>}/>
-          <Route path="/cart" element={<Payment/>}/>
-          <Route path="/contact" element={<ContactPage/>}/>
+          <Route
+            path="/"
+            element={
+              <Warper>
+                <Homepage />
+              </Warper>
+            }
+          />
+          <Route
+            path="/drink"
+            element={
+              <Warper>
+                <Drinkpage />
+              </Warper>
+            }
+          />
+          <Route
+            path="/club"
+            element={
+              <Warper isDark>
+                <Clubpage />
+              </Warper>
+            }
+          />
+          <Route
+            path="/cart"
+            element={
+              <Warper>
+                <Payment />
+              </Warper>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <Warper>
+                <ContactPage />
+              </Warper>
+            }
+          />
         </Routes>
-        <Footer />
       </Router>
     </>
   );
-}
+};
 
 export default App;

@@ -20,10 +20,12 @@ import { ChevronDownIcon, UserIcon } from "@heroicons/react/24/outline";
 import ProfileDropdown from "./HomePage/ProfileDropdown";
 import MyModal from "./HomePage/MyModal";
 import { NavLink } from "react-router-dom";
+import { themeColor } from "./lib/Utils";
+import { ShopingIcon } from "./Cart/Icon";
 
 const value = true;
 
-function NavArea() {
+const  NavArea = ({isDark})=> {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuitems = [
     "Eat & Drink",
@@ -42,6 +44,7 @@ function NavArea() {
         isMenuOpen={isMenuOpen}
         onMenuOpenChange={setIsMenuOpen}
         maxWidth="2xl"
+        className={themeColor(isDark)}
       >
         <NavbarContent className="md:hidden pr-3">
           <NavbarBrand>
@@ -66,7 +69,7 @@ function NavArea() {
             <NavLink
               to={"/drink"}
               className={({ isActive }) =>
-                isActive ? "text-[#0E8BFF]" : "text-desc"
+                isActive ? "text-[#0E8BFF]" : isDark ? "text-white" : "text-desc"
               }
             >
               Eat & Drink
@@ -83,14 +86,14 @@ function NavArea() {
             </NavLink>
           </NavbarItem>
           <NavbarItem>
-            <Dropdown>
+            <Dropdown className={isDark ? "bg-slate-800 text-white "  : ""}>
               <DropdownTrigger>
-                <Button className="text-desc" variant="none">
+                <Button className={isDark ? "text-white" : "text-desc"} variant="none">
                   Things to do{" "}
                   <ChevronDownIcon className="text-[#0E8BFF] w-4 h-4" />
                 </Button>
               </DropdownTrigger>
-              <DropdownMenu aria-label="Static Actions" className="text-desc">
+              <DropdownMenu aria-label="Static Actions" >
                 <DropdownItem>Water Sports</DropdownItem>
                 <DropdownItem>Day Parties</DropdownItem>
                 <DropdownItem>Outdoors</DropdownItem>
@@ -100,11 +103,11 @@ function NavArea() {
           </NavbarItem>
           <NavbarItem>
             <NavLink to={"/cart"}>
-              <img src="carticon.png" alt="" />
+             <ShopingIcon isDark={isDark}/>
             </NavLink>
           </NavbarItem>
           <NavbarItem>
-            {value === true ? <MyModal /> : <ProfileDropdown />}
+            {value === true ? <MyModal isDark={isDark}/> : <ProfileDropdown />}
           </NavbarItem>
           <NavbarItem>
             <NavLink to="/contact">

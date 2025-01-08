@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "image": "ClubImg1.png",
+    "title": "Quilox ",
+    "description": "2 Musa Yar’Adua, Lagos Nigeria",
+    "date": "Mondays-Friday",
+    "time": "8pm-3am"
+    
+  },
+  {
+    "id": 1,
+    "image": "ClubImg2.png",
+    "title": "Silver fox ",
+    "description": "2 Musa Yar’Adua, Lagos Nigeria",
+    "date": "Mondays-Friday",
+    "time": "8pm-3am"
+    
+  },
+  {
+    "id": 1,
+    "image": "ClubImg3.png",
+    "title": "Nitro night club ",
+    "description": "2 Musa Yar’Adua, Lagos Nigeria",
+    "date": "Mondays-Friday",
+    "time": "8pm-3am"
+    
+  },
+  {
+    "id": 1,
+    "image": "ClubImg4.png",
+    "title": "Club vegas ",
+    "description": "2 Musa Yar’Adua, Lagos Nigeria",
+    "date": "Mondays-Friday",
+    "time": "8pm-3am"
+    
+  }
+]

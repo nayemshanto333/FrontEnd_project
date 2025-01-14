@@ -25,10 +25,9 @@ import { ShopingIcon } from "./Cart/Icon";
 
 const value = true;
 
-const  NavArea = ({isDark})=> {
+const NavArea = ({ isDark }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuitems = [
-    "Eat & Drink",
     "Events",
     "club",
     "Things to do ",
@@ -69,7 +68,11 @@ const  NavArea = ({isDark})=> {
             <NavLink
               to={"/drink"}
               className={({ isActive }) =>
-                isActive ? "text-[#0E8BFF]" : isDark ? "text-white" : "text-desc"
+                isActive
+                  ? "text-[#0E8BFF]"
+                  : isDark
+                  ? "text-white"
+                  : "text-desc"
               }
             >
               Eat & Drink
@@ -82,18 +85,24 @@ const  NavArea = ({isDark})=> {
                 isActive ? "text-[#0E8BFF]" : "text-desc"
               }
             >
-              Club <sup className="!bg-blue-600 text-[8px] px-2 rounded-full text-white  ">+HOT</sup>
+              Club{" "}
+              <sup className="!bg-blue-600 text-[8px] px-2 rounded-full text-white  ">
+                +HOT
+              </sup>
             </NavLink>
           </NavbarItem>
           <NavbarItem>
-            <Dropdown className={isDark ? "bg-slate-800 text-white "  : ""}>
+            <Dropdown className={isDark ? "bg-slate-800 text-white " : ""}>
               <DropdownTrigger>
-                <Button className={isDark ? "text-white" : "text-desc"} variant="none">
+                <Button
+                  className={isDark ? "text-white" : "text-desc"}
+                  variant="none"
+                >
                   Things to do{" "}
                   <ChevronDownIcon className="text-[#0E8BFF] w-4 h-4" />
                 </Button>
               </DropdownTrigger>
-              <DropdownMenu aria-label="Static Actions" >
+              <DropdownMenu aria-label="Static Actions">
                 <DropdownItem>Water Sports</DropdownItem>
                 <DropdownItem>Day Parties</DropdownItem>
                 <DropdownItem>Outdoors</DropdownItem>
@@ -103,17 +112,17 @@ const  NavArea = ({isDark})=> {
           </NavbarItem>
           <NavbarItem>
             <NavLink to={"/cart"}>
-             <ShopingIcon isDark={isDark}/>
+              <ShopingIcon isDark={isDark} />
             </NavLink>
           </NavbarItem>
           <NavbarItem>
-            {value === true ? <MyModal isDark={isDark}/> : <ProfileDropdown />}
+            {value === true ? <MyModal isDark={isDark} /> : <ProfileDropdown />}
           </NavbarItem>
           <NavbarItem>
             <NavLink to="/contact">
-            <button  className="px-8 py-2 font-bold rounded-lg bg-[#0e8bff] text-white">
-              Contact
-            </button>
+              <button className="px-8 py-2 font-bold rounded-lg bg-[#0e8bff] text-white">
+                Contact
+              </button>
             </NavLink>
           </NavbarItem>
         </NavbarContent>
@@ -122,7 +131,67 @@ const  NavArea = ({isDark})=> {
 
         <div className="md:hidden">
           <NavbarMenu className="py-8 bg-[#F5FAFF]">
-            {menuitems.map((item, index) => (
+            <NavbarItem className="flex flex-col space-y-6 text-lg text-desc justify-start items-start ">
+              <NavLink
+                to={"/drink"}
+                className={({ isActive }) =>
+                  isActive ? "text-[#0E8BFF]" : "text-desc"
+                }
+              >
+                Eat & Drink
+              </NavLink>
+              <NavLink>Events</NavLink>
+              <NavLink
+                to={"/club"}
+                className={({ isActive }) =>
+                  isActive ? "text-[#0E8BFF]" : "text-desc"
+                }
+              >
+                Club
+              </NavLink>
+              <Dropdown className={isDark ? "bg-slate-800 text-white " : ""}>
+                <DropdownTrigger>
+                  <Button
+                    className={
+                      isDark
+                        ? "text-desc text-lg justify-between flex w-full  "
+                        : "text-desc text-lg justify-between flex w-full border-b border-[#C4C4C4] pb-5 "
+                    }
+                    variant="none"
+                  >
+                    Things to do{" "}
+                    <ChevronDownIcon className="text-[#0E8BFF] w-6 h-6" />
+                  </Button>
+                </DropdownTrigger>
+                <DropdownMenu aria-label="Static Actions">
+                  <DropdownItem>Water Sports</DropdownItem>
+                  <DropdownItem>Day Parties</DropdownItem>
+                  <DropdownItem>Outdoors</DropdownItem>
+                  <DropdownItem>Rentals</DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
+              <NavLink>My Profile</NavLink>
+              <NavLink>Pay With Crypto</NavLink>
+              <NavLink
+                to={"/cart"}
+                className={({ isActive }) =>
+                  isActive ? "text-[#0E8BFF]" : "text-desc"
+                }
+              >
+                Cart
+              </NavLink>
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  isActive ? "text-[#0E8BFF]" : "text-desc"
+                }
+              >
+                Contact Us
+              </NavLink>
+              <NavLink>Log Out</NavLink>
+              <Button color="primary" className="px-16">Get Started</Button>
+            </NavbarItem>
+            {/* {menuitems.map((item, index) => (
               <NavbarItem key={index}>
                 <Link className="w-full text-black capitalize">{item}</Link>
               </NavbarItem>
@@ -134,12 +203,12 @@ const  NavArea = ({isDark})=> {
               >
                 Get Started
               </Button>
-            </NavbarItem>
+            </NavbarItem> */}
           </NavbarMenu>
         </div>
       </Navbar>
     </section>
   );
-}
+};
 
 export default NavArea;

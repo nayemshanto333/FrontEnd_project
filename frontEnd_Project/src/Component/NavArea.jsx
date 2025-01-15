@@ -22,7 +22,7 @@ import MyModal from "./HomePage/MyModal";
 import { NavLink } from "react-router-dom";
 import { themeColor } from "./lib/Utils";
 import { ShopingIcon } from "./Cart/Icon";
-
+import MyModal2 from "./HomePage/MyModal2";
 const value = true;
 
 const NavArea = ({ isDark }) => {
@@ -46,9 +46,9 @@ const NavArea = ({ isDark }) => {
         className={themeColor(isDark)}
       >
         <NavbarContent className="md:hidden pr-3">
-          <NavbarBrand>
-            <img src="logo.png" alt="logo" className="w-44" />
-          </NavbarBrand>
+        <NavLink to={"/"}>
+                <img src="logo.png" alt="logo" className="w-44" />
+              </NavLink>
         </NavbarContent>
         <NavbarContent className="md:hidden" justify="end">
           <NavbarMenuToggle
@@ -130,12 +130,12 @@ const NavArea = ({ isDark }) => {
         {/* Mobile Menu */}
 
         <div className="md:hidden">
-          <NavbarMenu className="py-8 bg-[#F5FAFF]">
-            <NavbarItem className="flex flex-col space-y-6 text-lg text-desc justify-start items-start ">
+          <NavbarMenu className="py-8 bg-black/75">
+            <NavbarItem className="flex flex-col space-y-6 text-lg text-primary justify-start items-start ">
               <NavLink
                 to={"/drink"}
                 className={({ isActive }) =>
-                  isActive ? "text-[#0E8BFF]" : "text-desc"
+                  isActive ? "text-[#fff]" : "text-primary"
                 }
               >
                 Eat & Drink
@@ -144,7 +144,7 @@ const NavArea = ({ isDark }) => {
               <NavLink
                 to={"/club"}
                 className={({ isActive }) =>
-                  isActive ? "text-[#0E8BFF]" : "text-desc"
+                  isActive ? "text-[#fff]" : "text-primary"
                 }
               >
                 Club
@@ -154,8 +154,8 @@ const NavArea = ({ isDark }) => {
                   <Button
                     className={
                       isDark
-                        ? "text-desc text-lg justify-between flex w-full  "
-                        : "text-desc text-lg justify-between flex w-full border-b border-[#C4C4C4] pb-5 "
+                        ? "text-primary text-lg justify-between flex w-full  "
+                        : "text-primary text-lg justify-between flex w-full border-b border-[#C4C4C4] pb-5 "
                     }
                     variant="none"
                   >
@@ -170,12 +170,12 @@ const NavArea = ({ isDark }) => {
                   <DropdownItem>Rentals</DropdownItem>
                 </DropdownMenu>
               </Dropdown>
-              <NavLink>My Profile</NavLink>
+              <NavLink><MyModal2/></NavLink>
               <NavLink>Pay With Crypto</NavLink>
               <NavLink
                 to={"/cart"}
                 className={({ isActive }) =>
-                  isActive ? "text-[#0E8BFF]" : "text-desc"
+                  isActive ? "text-[#fff]" : "text-primary"
                 }
               >
                 Cart
@@ -183,7 +183,7 @@ const NavArea = ({ isDark }) => {
               <NavLink
                 to="/contact"
                 className={({ isActive }) =>
-                  isActive ? "text-[#0E8BFF]" : "text-desc"
+                  isActive ? "text-white" : "text-primary"
                 }
               >
                 Contact Us
